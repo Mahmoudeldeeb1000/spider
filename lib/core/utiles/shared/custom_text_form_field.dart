@@ -18,8 +18,9 @@ class CustomTextFormField extends StatelessWidget {
     this.prefix,
     this.obscureText = false,
     this.keyboardType,
-    this.controller,
+   required this.controller,
     this.onSaved,
+    required this.textstylecolor
   });
 
   final String hintText;
@@ -27,6 +28,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
   final Color? fillColor;
+  final Color textstylecolor;
   final int minLine;
   final int maxLine;
   final void Function(String)? onChanged;
@@ -36,7 +38,7 @@ class CustomTextFormField extends StatelessWidget {
   final InputBorder? border;
   final InputBorder? enabledBorder;
   final InputBorder? focusBorder;
-  final TextEditingController? controller;
+  final TextEditingController controller;
   final void Function(String?)? onSaved;
 
   @override
@@ -60,7 +62,7 @@ class CustomTextFormField extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.red),
           ),
         ),
-        style: const TextStyle(color: Colors.white),
+        style:  TextStyle(color: textstylecolor),
       ),
     );
   }
