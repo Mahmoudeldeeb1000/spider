@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spider/core/utiles/app_images.dart';
+import 'package:spider/features/home/presentation/views/academic_learning_screen.dart';
+import 'package:spider/features/home/presentation/views/ctf_item_screen.dart';
+import 'package:spider/features/home/presentation/views/projects_screen.dart';
 
 class HomeBodyScreen extends StatefulWidget {
    HomeBodyScreen({Key? key, required this.name}) : super(key: key);
@@ -63,7 +66,7 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
                     ),
                     const SizedBox(width: 5),
                     Text(
-                      widget.name,
+                      "Mahmoud",
                       style: TextStyle(fontSize: 16, color: Colors.grey[700]),
                     ),
                     Spacer(),
@@ -96,9 +99,21 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   _buildProjectCard( "Projects", AppImages.project),
-                  _buildProjectCard( "Academic\nLearning",AppImages.academic),
-                   _buildProjectCard( "CTF\nChallenges",AppImages.gift),
+                   GestureDetector(
+                      onTap: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (context) => ProjectsScreen(),));
+                       },
+                       child: _buildProjectCard( "Projects", AppImages.project)),
+                  GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => AcademicLearningScreen(),));
+                      },
+                      child: _buildProjectCard( "Academic\nLearning",AppImages.academic)),
+                   GestureDetector(
+                     onTap: (){
+                       Navigator.push(context, MaterialPageRoute(builder: (context) => CtfItemScreen(),));
+                     },
+                       child: _buildProjectCard( "CTF\nChallenges",AppImages.gift)),
                    // _buildProjectCard( "See all",AppImages.see_all),
                 ],
               ),
@@ -108,15 +123,20 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
             // Security Projects Section
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    "Security Projects",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Icon(Icons.menu,color: Colors.red,),
-                ],
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProjectsScreen(),));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      "Security Projects",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Icon(Icons.menu,color: Colors.red,),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 5),
@@ -142,16 +162,18 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
             const SizedBox(height: 20),
 
             // CTF Challenges Section
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     "CTF Challenges",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  Spacer(),
-                  Icon(Icons.menu,color: Colors.red,),
+                  const Spacer(),
+                  IconButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => CtfItemScreen(),));
+                  }, icon: const Icon(Icons.menu,color: Colors.red,)),
                 ],
               ),
             ),
@@ -160,9 +182,11 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 children: [
-                  _buildProjectCard('SOC application', AppImages.ctf1),
-                  _buildProjectCard('Antivirus\nApplication', AppImages.ctf2),
-                  _buildProjectCard('Penetration\nTesting', AppImages.ctf3),
+                  _buildProjectCard('wep Explotation', AppImages.ctf1),
+                  Spacer(),
+                  _buildProjectCard('Forensics', AppImages.ctf2),
+                  Spacer(),
+                  _buildProjectCard('Networking', AppImages.ctf3),
                 ],
               ),
             ),

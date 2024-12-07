@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utiles/app_images.dart';
 
-class CtfItemBody extends StatelessWidget {
-  const CtfItemBody({super.key});
+class AcademicLearningBody extends StatelessWidget {
+  const AcademicLearningBody({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +73,7 @@ class CtfItemBody extends StatelessWidget {
               child: Row(
                 children: [
                   const Text(
-                    "CTF Challenges",
+                    "Academic Learning",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),
@@ -81,56 +81,14 @@ class CtfItemBody extends StatelessWidget {
                 ],
               ),
             ),
-            Text("Hands-on challenges to test and apply your skills.",style: TextStyle(color: Colors.grey),),
-            Center(child: Text("Category",style: TextStyle(fontWeight: FontWeight.bold),)),
+            Text("in-depth academic resources for learning security.",style: TextStyle(color: Colors.grey),),
             const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
-                  _buildProjectCard('wep Explotation', AppImages.ctf1),
-                  Spacer(),
-                  _buildProjectCard('Forensics', AppImages.ctf2),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
 
-                  _buildProjectCard('Forensics', AppImages.ctf3),
-                  Spacer(),
-                  _buildProjectCard('Networking', AppImages.ctf4),
-                ],
-              ),
-            ),
+                  Center(child: _buildProjectCard('Cybersecurity \n Foundations', AppImages.academic1),),
 
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
-                  _buildProjectCard('Reverse \n Enginering', AppImages.ctf5),
-                  Spacer(),
-                  _buildProjectCard('OsiNT', AppImages.ctf8),
-                ],
-              ),
-            ),
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
-                  _buildProjectCard('Binary \n explotation', AppImages.ctf7),
-                  Spacer(),
-                  _buildProjectCard('Mobile Attack', AppImages.ctf6),
-                ],
-              ),
-            ),
-            Center(
-                child: _buildProjectCard('Mobile Attack', AppImages.ctf9)),
 
+            const SizedBox(height: 30),
+            Center(child: _buildProjectCard('penetration \n Testing Track', AppImages.academic2)),
           ],
         ),
       ),

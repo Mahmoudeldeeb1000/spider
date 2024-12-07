@@ -7,6 +7,8 @@ class CtfItemScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CtfItemBody();
+    return CtfItemBody(
+
+    );
   }
 }
